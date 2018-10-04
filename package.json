@@ -4,7 +4,8 @@
   "description": "The ember addon for time picker.",
   "keywords": [
     "ember-addon",
-    "ember-time-picker"
+    "ember-time-picker",
+    "time-picker"
   ],
   "repository": "",
   "license": "MIT",
@@ -23,7 +24,8 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.16.0",
-    "ember-cli-htmlbars": "^3.0.0"
+    "ember-cli-htmlbars": "^3.0.0",
+    "ember-power-select": "^2.0.8"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",
