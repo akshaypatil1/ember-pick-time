@@ -1,0 +1,10 @@
+{{#power-select
+    selected=selected
+    options=options
+    disabled=disabled
+    placeholder = 'Select time'
+    onchange=(action (mut selected))
+    as |time|
+}}
+    {{time}}
+{{/power-select}}
