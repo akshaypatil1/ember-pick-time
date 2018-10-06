@@ -9,7 +9,7 @@
   ],
   "repository": "",
   "license": "MIT",
-  "author": "",
+  "author": "AkshayPatil",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -24,8 +24,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.16.0",
-    "ember-cli-htmlbars": "^3.0.0",
-    "ember-power-select": "^2.0.8"
+    "ember-cli-htmlbars": "^3.0.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",

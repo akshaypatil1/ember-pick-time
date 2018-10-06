@@ -4,7 +4,7 @@ This is an Ember addon that uses the wonderful [ember-power-select](https://gith
 
 ## Installation
 
-Ember Time Picker has the same requirements as ember-power-select.
+Ember Time Picker has the same requirements as ember-power-select. Hence, we need to install [ember-power-select](https://github.com/cibernox/ember-power-select) as well.
 This is an ember-cli addon so this will install the addon:
 ```
 ember install ember-time-picker
@@ -28,13 +28,12 @@ Following is extended example with two timepickers. This is to handle "From Time
     From Time
     {{ember-time-picker
         selected = fromTime
-        disabled=false
     }}
     To Time
     {{ember-time-picker
         selected = toTime
-        startTime = fromTime
-        disabled=false
+        startTime = fromTime // Ex, '7:00 PM' or '12:15 AM'
+        disabled = false // optional
     }}
 ```
 

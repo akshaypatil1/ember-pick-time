@@ -15,8 +15,8 @@ export default Component.extend({
     layout,
     init() {
         this._super(...arguments);
-        if (!this.get('selected')){
-            warn('"selected" must be passed into the ember-time-picker component');
+        if (typeof this.get('selected') === 'undefined'){
+            warn('"selected" must be passed into the ember-time-picker component',false,{id:'ember-time-picker'});
             return null;
         }
         this.set('options', []);
@@ -27,13 +27,13 @@ export default Component.extend({
         if(this.get('startTime')){
             this.set('isVisible', false);
         }
-        this.populate();
+        this.populateOptions();
     },
     startTimeObserver: observer('startTime', function() {
         this.set('isVisible', false);
-        this.populate();
+        this.populateOptions();
     }),
-    populate() {
+    populateOptions() {
         let hours, minutes, ampm;
         let options = [];
         for(let i = _0; i < _1440; i += this.get('interval')){
