@@ -1,0 +1,1 @@
+export { default } from 'ember-pick-time/components/ember-pick-time';

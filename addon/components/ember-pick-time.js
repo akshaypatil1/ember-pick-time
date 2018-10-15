@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { observer } from '@ember/object';
 import { warn } from '@ember/debug';
-import layout from '../templates/components/ember-time-picker';
+import layout from '../templates/components/ember-pick-time';
 
 const _0 = 0,
     _10 = 10,
@@ -16,7 +16,7 @@ export default Component.extend({
     init() {
         this._super(...arguments);
         if (typeof this.get('selected') === 'undefined'){
-            warn('"selected" must be passed into the ember-time-picker component',false,{id:'ember-time-picker'});
+            warn('"selected" must be passed into the ember-pick-time component',false,{id:'ember-pick-time'});
             return null;
         }
         this.set('options', []);
