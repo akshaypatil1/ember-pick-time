@@ -1,4 +1,4 @@
-# ember-time-picker
+# ember-pick-time
 
 This is an Ember addon that uses the wonderful [ember-power-select](https://github.com/cibernox/ember-power-select) component for allowing the user to select a time [am / pm] from a picklist.
 
@@ -7,14 +7,14 @@ This is an Ember addon that uses the wonderful [ember-power-select](https://gith
 Ember Time Picker has the same requirements as ember-power-select. Hence, we need to install [ember-power-select](https://github.com/cibernox/ember-power-select) as well.
 This is an ember-cli addon so this will install the addon:
 ```
-ember install ember-time-picker
+ember install ember-pick-time
 ```
 ## Example #1
 
 Following is basic example with selected and disabled proporty.
 
 ```handlebars
-    {{ember-time-picker
+    {{ember-pick-time
         selected = selectedTime
         disabled=false
     }}
@@ -26,11 +26,11 @@ Following is extended example with two timepickers. This is to handle "From Time
 
 ```handlebars
     From Time
-    {{ember-time-picker
+    {{ember-pick-time
         selected = fromTime
     }}
     To Time
-    {{ember-time-picker
+    {{ember-pick-time
         selected = toTime
         startTime = fromTime // Ex, '7:00 PM' or '12:15 AM'
         disabled = false // optional
