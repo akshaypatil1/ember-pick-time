@@ -8,7 +8,7 @@
     "ember-time-picker",
     "time-picker"
   ],
-  "repository": "",
+  "repository": "github:akshaypatil1/ember-pick-time",
   "license": "MIT",
   "author": "AkshayPatil",
   "directories": {
