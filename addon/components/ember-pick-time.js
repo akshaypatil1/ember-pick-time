@@ -4,6 +4,7 @@ import { warn } from '@ember/debug';
 import layout from '../templates/components/ember-pick-time';
 
 const _0 = 0,
+    _1 = 1,
     _10 = 10,
     _1440 = 1440,
     _60 = 60,
@@ -20,19 +21,41 @@ export default Component.extend({
             return null;
         }
         this.set('options', []);
+        this.set('startTimeMinutes',null);
         if(!this.get('interval')){
             this.set('interval', _15)
         }
         this.set('isVisible', true);
         if(this.get('startTime')){
+            let pattern = /(^(1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))/;
+            if(!pattern.test(this.get('startTime')) || this.get('startTime').trim().indexOf(' ') === -_1){
+                warn(`${this.get('startTime')} is not in correct format.`,false,{id:'ember-pick-time'});
+                return null;
+            }
+            this.timeToMinutes(this.get('startTime').trim());
             this.set('isVisible', false);
         }
         this.populateOptions();
     },
     startTimeObserver: observer('startTime', function() {
+        this.timeToMinutes(this.get('startTime').trim());
         this.set('isVisible', false);
         this.populateOptions();
     }),
+    timeToMinutes(time){
+        let hmap = time.split(':');
+        let hr = hmap[_0];
+        let ampm = hmap[_1].split(' ');
+        let minutes = parseInt(ampm[_0]);
+        if(ampm[_1] === 'PM' || ampm[_1] === 'pm'){
+            minutes = ((parseInt(hr) + _12)*_60)+minutes;
+        }else{
+            if(parseInt(hr) !== _12){
+                minutes = (parseInt(hr)*_60)+minutes;
+            }
+        }
+        this.set('startTimeMinutes',minutes);
+    },
     populateOptions() {
         let hours, minutes, ampm;
         let options = [];
@@ -48,7 +71,10 @@ export default Component.extend({
                 hours = _12;
             }
             if(this.get('startTime') && !this.get('isVisible')){
-                if(this.get('startTime') === `${hours}:${minutes} ${ampm}`){
+                if(this.get('startTimeMinutes') <= i){
+                    if(this.get('startTimeMinutes') < i){
+                        options.push(`${hours}:${minutes} ${ampm}`);
+                    }
                     this.set('isVisible', true);
                 }
             }else{
