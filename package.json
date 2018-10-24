@@ -1,6 +1,6 @@
 {
   "name": "ember-pick-time",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The ember addon for time picker.",
   "keywords": [
     "ember-addon",
