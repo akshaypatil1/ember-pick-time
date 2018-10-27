@@ -7,7 +7,7 @@ This is an Ember addon that uses the wonderful [ember-power-select](https://gith
 Ember Time Picker has the same requirements as ember-power-select. Hence, we need to install [ember-power-select](https://github.com/cibernox/ember-power-select) as well.
 This is an ember-cli addon so this will install the addon:
 ```
-ember install ember-pick-time
+npm install ember-pick-time
 ```
 ## Example #1
 
@@ -16,6 +16,7 @@ Following is basic example with selected and disabled proporty.
 ```handlebars
     {{ember-pick-time
         selected = selectedTime
+        interval = 15
         disabled=false
     }}
 ```
@@ -28,10 +29,12 @@ Following is extended example with two timepickers. This is to handle "From Time
     From Time
     {{ember-pick-time
         selected = fromTime
+        interval = 30
     }}
     To Time
     {{ember-pick-time
         selected = toTime
+        interval = 60
         startTime = fromTime // Ex, '7:00 PM' or '12:15 AM'
         disabled = false // optional
     }}
@@ -43,4 +46,5 @@ Following is extended example with two timepickers. This is to handle "From Time
 | --- | --- | --- |
 | selected | Required | The selected option |
 | startTime | optional | This will the time from which user want to display time-list |
+| interval | optional | This will the interval in minutes. Should be one of 5, 15,30,60. |
 | disabled | `boolean` | Default it's `false`. When truthy the component cannot be interacted |

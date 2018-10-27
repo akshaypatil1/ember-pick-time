@@ -5,6 +5,8 @@ import layout from '../templates/components/ember-pick-time';
 
 const _0 = 0,
     _1 = 1,
+    _5 = 5,
+    _30 = 30,
     _10 = 10,
     _1440 = 1440,
     _60 = 60,
@@ -24,6 +26,10 @@ export default Component.extend({
         this.set('startTimeMinutes',null);
         if(!this.get('interval')){
             this.set('interval', _15)
+        }
+        if(![_5,_15,_30,_60].includes(this.get('interval'))){
+            warn(`${this.get('interval')} is not expected input for interval.`,false,{id:'ember-pick-time'});
+                return null;
         }
         this.set('isVisible', true);
         if(this.get('startTime')){
